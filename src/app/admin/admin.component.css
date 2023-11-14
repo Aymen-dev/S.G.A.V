@@ -1,0 +1,100 @@
+span {
+    margin: 0 5px 0;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container-fluid {
+    background-image: url('/assets/images/voyage.jpg');
+}
+
+.dashboard {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.559);
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.dashboard-title {
+    font-size: 30px;
+    font-weight: bold;
+    color: #d0cbdd;
+}
+
+.dashboard-actions {
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    margin: 20px;
+}
+
+.dashboard-actions .btn {
+    margin-left: 10px;
+}
+
+.dashboard-content {
+    margin-bottom: 40px;
+}
+
+.statistic-card {
+    background-color: #d0cbdd;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.users-card,
+.excursions-card {
+    background-color: #d0cbdd;
+}
+
+.list-group-item {
+    background: transparent;
+    border: none;
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #494554;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.card-text {
+    font-size: 16px;
+    color: black;
+}
+
+.btn {
+    margin-top: 20px;
+}
+
+.employee-name, .excursion-name {
+    font-size: 18px;
+    font-family:'Times New Roman', Times, serif;
+    color: black;
+}
+
+.employee-position, .excursion-date {
+    font-size: 14px;
+    color: #494554;
+}
+
+.float-end {
+    float: right;
+}

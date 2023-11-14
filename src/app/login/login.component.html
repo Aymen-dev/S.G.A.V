@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+<section class="vh-100 section-bg">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="w3-card-2 w-100 bg-white" style="min-height: 500px;">
+                    <div class="p-5">
+                        <h1 class="mb-5 text-center">Se connecter</h1>
+                        <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Nom d'utilisateur</label>
+                                <input type="text" class="form-control" name="username" id="username"
+                                    [(ngModel)]="username">
+                            </div>
+                            <div class="mb-4">
+                                <label for="password" class="form-label">Mot de passe</label>
+                                <input type="password" name="password" class="form-control" id="password"
+                                    [(ngModel)]="password">
+
+                            </div>
+
+                            <div *ngIf="validCreds" class="alert alert-success">
+                                <span class="success-icon">&#10004;</span>
+                                <span>{{ message }}</span>
+                            </div>
+
+                            <div *ngIf="validCreds === false" class="alert alert-danger">
+                                <span class="error-icon">&#9888;</span>
+                                <span>{{ message }}</span>
+                            </div>
+
+                            <div class="mt-4">
+                                <button class="btn btn-primary btn-lg btn-block w-100" type="submit"><span>Se
+                                        connecter</span></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

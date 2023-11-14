@@ -1,0 +1,36 @@
+<form #addEmployeeForm="ngForm" (ngSubmit)="onSubmit()" class="add-employee-form p-5">
+    <h2 class="mb-4">Ajouter un utilisateur</h2>
+    <div class="my-3">
+        <input type="text" id="name" name="name" class="form-control" [(ngModel)]="name" required placeholder="Nom et prenom">
+    </div>
+    <div class="my-3">
+        <input type="text" id="phone" name="phone" class="form-control" [(ngModel)]="phone" required placeholder="Téléphone">
+    </div>
+    <div class="my-3">
+        <input type="text" id="cin" name="cin" class="form-control" [(ngModel)]="cin" required placeholder="CIN">
+    </div>
+    <div class="my-3">
+        <select id="role" name="role" class="form-select" [(ngModel)]="role" required>
+            <option value="" selected disabled>Selectionner le role</option>
+            <option value="vendeur">Vendeur</option>
+            <option value="chauffeur">Chauffeur</option>
+            <option value="agent">Agent</option>
+        </select>
+    </div>
+    <hr>
+    <div class="my-3">
+        <input type="text" id="username" name="username" class="form-control" [(ngModel)]="username" required placeholder="Nom d'utilisateur">
+    </div>
+    <div class="my-3">
+        <input type="password" id="password" name="password" class="form-control" [(ngModel)]="password" required placeholder="Mot de passe">
+    </div>
+    <div *ngIf="success == true" class="alert alert-success">
+        <span>{{message}}</span>
+    </div>
+    <div *ngIf="danger == true" class="alert alert-danger">
+        <span>{{message}}</span>
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary w-25" [disabled]="addEmployeeForm.invalid">Ajouter</button>
+    </div>
+</form>

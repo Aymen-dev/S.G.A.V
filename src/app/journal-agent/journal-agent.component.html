@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+<div class="card p-5" *ngIf="!showTickets">
+    <div class="card-title text-center">
+        <h2>Selectionner le vendeur</h2>
+    </div>
+    <div class="card-body">
+        <ul class="list-group">
+            <div *ngFor="let seller of sellers">
+                <li class="list-group-item" (click)="onSellerClicked(seller.userId, seller.nom)">
+                    <span>{{ seller.nom }}</span>
+                    <span>{{ seller.role }}</span>
+                </li>
+            </div>
+        </ul>
+        <div class="card-footer text-center" *ngIf="tickets">
+            <h5>{{ message }}</h5>
+        </div>
+    </div>
+</div>
+<section class="section-bg" *ngIf="showTickets">
+    <div class="container-fluid p-5">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="dashboard">
+                    <header class="dashboard-header text-center">
+                        <h1 class="dashboard-title">Bienvenue {{ agentName }} </h1>
+                        <div class="dashboard-actions">
+                            <button class="btn btn-warning" (click)="calculatePayment()">Calculer paiement</button>
+                        </div>
+                    </header>
+                    <div class="d-flex justify-content-between">
+                        <h3><b>Journal du vendeur:</b> {{ sellerName }}</h3>
+                        <h3 *ngIf="sellerPayment > 0"><b>Paiement:</b> {{ sellerPayment }} DT</h3>
+                    </div>
+                    <h5><b>Pour le:</b> {{ formattedDate }}</h5>
+                    <div class="dashboard-content">
+                        <div *ngFor="let ticket of tickets">
+                            <app-ticket [ticket]="ticket"></app-ticket>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary" (click)="back()">Retour</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

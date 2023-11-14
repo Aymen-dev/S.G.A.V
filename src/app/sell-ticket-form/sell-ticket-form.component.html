@@ -1,0 +1,33 @@
+<div class="container-fluid p-5">
+    <form #sellTicketForm="ngForm" (ngSubmit)="onSubmit()">
+        <h2 class="mb-4">Entrer les informations suivantes:</h2>
+        <div class="my-3">
+            <input type="text" id="nomExcursion" name="nomExcursion" class="form-control" [(ngModel)]="nomExcursion"
+                required placeholder="Nom de l'excursion">
+        </div>
+        <div class="my-3">
+            <input type="number" id="nbAdultes" name="nbAdultes" class="form-control" [(ngModel)]="nbAdultes" required
+                placeholder="Nombre d'adultes">
+        </div>
+        <div class="my-3">
+            <input type="number" id="nbEnfants" name="nbEnfants" class="form-control" [(ngModel)]="nbEnfants" required
+                placeholder="Nombre d'enfants">
+        </div>
+        <div class="my-3">
+            <input type="number" id="nbBebe" name="nbBebe" class="form-control" [(ngModel)]="nbBebe" required
+                placeholder="Nombre de bébé">
+        </div>
+        <hr>
+
+        <div *ngIf="success == true && message" class="alert alert-success">
+            <span>{{message}}</span>
+        </div>
+        <div *ngIf="danger == true && message" class="alert alert-danger">
+            <span>{{message}}</span>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary w-25" [disabled]="sellTicketForm.invalid">Vendre
+                ticket</button>
+        </div>
+    </form>
+</div>

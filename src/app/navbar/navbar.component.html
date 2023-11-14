@@ -1,0 +1,56 @@
+<nav class="navbar sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="/">
+            <img src="/assets/images/logo.png" alt="Logo" class="d-inline-block">
+            <span>Agence De Voyage</span>
+        </a>
+        <ul class="nav nav-pills justify-content-end">
+            <li class="nav-item">
+                <a routerLink="/app-about" class="nav-link">A propos</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/app-login" *ngIf="!isLoggedIn" class="nav-link">Se connecter</a>
+            </li>
+            <li class="nav-item">
+                <a *ngIf="isLoggedIn && isSeller()" routerLink="/app-journal" class="nav-link">Journal
+                </a>
+            </li>
+            <li class="nav-item">
+                <a *ngIf="isLoggedIn && isAdmin()" routerLink="/app-admin" class="nav-link">Administrateur
+                </a>
+            </li>
+            <li class="nav-item">
+                <a *ngIf="isLoggedIn && isAgent()" routerLink="/app-journal-agent" class="nav-link">Consulter Journal
+                    Vendeur
+                </a>
+            </li>
+            <li class="nav-item">
+                <a *ngIf="isLoggedIn && isChauffeur()" routerLink="/app-chauffeur" class="nav-link">Excursions
+                </a>
+            </li>
+            <li class="nav-item">
+                <a *ngIf="isLoggedIn" (click)="logout(); redirect();"
+                    class="nav-link" routerLink="/">Se déconnecter
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+<!--<div class="navbar sticky-top">
+    <img src="/assets/images/logo.png" alt="logo" href="/" class="w3-bar-item w3-image">
+    <a href="/app-about" class="w3-bar-item w3-button w3-hover-red w3-text">A propos</a>
+    <a routerLink="/app-login" *ngIf="!isLoggedIn" class="w3-bar-item w3-button w3-hover-red w3-text">Se connecter</a>
+    <a *ngIf="isLoggedIn && isSeller()" routerLink="/app-journal"
+        class="w3-bar-item w3-button w3-hover-red w3-text">Journal</a>
+    <a *ngIf="isLoggedIn && isAdmin()" routerLink="/app-admin"
+        class="w3-bar-item w3-button w3-hover-red w3-text">Administrateur</a>
+    <a *ngIf="isLoggedIn && isAgent()" routerLink="/app-journal-agent"
+        class="w3-bar-item w3-button w3-hover-red w3-text">Consulter Journal Vendeur</a>
+    <a *ngIf="isLoggedIn && isChauffeur()" routerLink="/app-chauffeur"
+        class="w3-bar-item w3-button w3-hover-red w3-text">Excursions</a>
+    <a *ngIf="isLoggedIn" (click)="logout(); redirect();" class="w3-bar-item w3-button w3-hover-red w3-text">Se
+        déconnecter</a>
+</div>-->

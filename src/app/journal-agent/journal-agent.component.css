@@ -1,0 +1,74 @@
+span{
+    margin: 0px 5px 0px;
+}
+
+li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+li:hover{
+    background-color: rgba(156, 196, 255, 0.386);
+}
+
+.section-bg {
+    background-image: url('/assets/images/voyage.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.dashboard {
+    position: relative;
+    background-color: #cecece68;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.dashboard-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.dashboard-actions .btn {
+    margin-left: 10px;
+}
+
+.dashboard-content {
+    margin-bottom: 40px;
+}
+
+.statistic-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.card-text {
+    font-size: 16px;
+}
+
+
+
+.float-end {
+    float: right;
+}

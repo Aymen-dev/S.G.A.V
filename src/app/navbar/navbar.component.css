@@ -1,0 +1,29 @@
+img {
+    width: 60px;
+    height: 37px;
+}
+
+span {
+    font-size: 15px;
+}
+
+.navbar {
+    background-color: rgb(40, 40, 40);
+}
+
+.nav-link {
+    color: rgb(179, 179, 179);
+    font-size: 20px;
+}
+
+.nav-link:hover {
+    color: white;
+}
+
+a :hover {
+    text-decoration: none;
+}
+
+.navbar-brand {
+    color: rgb(157, 157, 157);
+}

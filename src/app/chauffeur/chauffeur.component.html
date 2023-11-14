@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+<div class="card p-5" *ngIf="!showTickets">
+    <div class="card-title text-center">
+        <h2>Selectionner l'excursion</h2>
+    </div>
+    <div class="card-body">
+        <ul class="list-group">
+            <div *ngFor="let excursion of excursions">
+                <li class="list-group-item text-center"
+                    (click)="onExcursionClicked(excursion.idExcursion, excursion.nom)">
+                    <span>{{ excursion.nom }}</span>
+                </li>
+            </div>
+        </ul>
+    </div>
+</div>
+<section class="section-bg" *ngIf="showTickets">
+    <div class="container-fluid p-5">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="dashboard">
+                    <header class="dashboard-header text-center">
+                        <h1 class="dashboard-title">Bienvenue {{ chauffeurName }} </h1>
+                    </header>
+                    <div class="d-flex justify-content-between">
+                        <h3><b>Tickets de l'excursion: </b> {{ excursionName }}</h3>
+                    </div>
+                    <h5><b>Pour le:</b> {{ formattedDate }}</h5>
+                    <div class="dashboard-content">
+                        <div *ngFor="let ticket of tickets">
+                            <app-ticket [ticket]="ticket"></app-ticket>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

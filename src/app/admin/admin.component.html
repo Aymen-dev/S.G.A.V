@@ -1,0 +1,76 @@
+<app-navbar></app-navbar>
+<div class="container-fluid p-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="dashboard">
+                <header class="dashboard-header">
+                    <h1 class="dashboard-title">Bienvenue {{ adminName }}</h1>
+                </header>
+                <div class="dashboard-content">
+                    <div class="row mb-4">
+                        <div class="col-lg-4 text-center">
+                            <div class="card statistic-card">
+                                <div class="card-body">
+                                    <h2 class="card-title">Employees</h2>
+                                    <p class="card-text">{{ empCount }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 text-center">
+                            <div class="card statistic-card">
+                                <div class="card-body">
+                                    <h2 class="card-title">Excursions</h2>
+                                    <p class="card-text">{{ excCount }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 text-center">
+                            <div class="card statistic-card">
+                                <div class="card-body">
+                                    <h2 class="card-title">Revenue</h2>
+                                    <p class="card-text">+{{ revenue }} DT</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dashboard-actions">
+                        <button class="btn btn-light" (click)="openAddEmployeeDialog()">Ajouter Utilisateur</button>
+                        <button class="btn btn-primary" (click)="openAddExcursionDialog()">Ajouter Excursion</button>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-lg-6">
+                            <div class="card users-card">
+                                <div class="card-body">
+                                    <h2 class="card-title">Liste des employees</h2>
+                                    <ul class="list-group">
+                                        <li class="list-group-item" *ngFor="let user of users">
+                                            <span class="employee-name">{{ user.nom }}</span>
+                                            <span class="employee-position">{{ user.role }}</span>
+                                            <button class="btn btn-danger btn-sm float-end m-0"
+                                                (click)="deleteUser(user.userId)">Supprimer</button>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="card excursions-card">
+                                <div class="card-body">
+                                    <h2 class="card-title">Liste des excursions</h2>
+                                    <ul class="list-group">
+                                        <li class="list-group-item" *ngFor="let excursion of excursions">
+                                            <span class="excursion-name">{{ excursion.nom }}</span>
+                                            <span class="excursion-date">{{ formatDate(excursion.dateDebut) }}</span>
+                                            <button class="btn btn-danger btn-sm float-end m-0" (click)="
+                                                deleteExcursion(excursion.idExcursion)">Supprimer</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

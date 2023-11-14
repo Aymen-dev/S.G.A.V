@@ -1,0 +1,30 @@
+<div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-sm-4">
+      <img src="/assets/images/ticket.jpg" class="img-fluid rounded-start h-100" alt="Ticket">
+    </div>
+    <div class="col-sm-8 p-3">
+      <div class="card-body">
+        <h2 class="card-title">Excursion - {{ excursionName }}</h2>
+        <h5 class="card-subtitle">Ticket <b>{{ ticket.num }}</b></h5> <br>
+        <ul class="card-text">
+          <li>
+            <b>Etat: </b>
+            <span *ngIf="ticket.etat === 'vendu'" class="text-success">Vendu</span>
+            <span *ngIf="ticket.etat === 'execute'" class="text-secondary">Executé</span>
+            <span *ngIf="ticket.etat === 'annule' || ticket.etat === 'annulé' " class="text-danger">Annulé</span>
+          </li>
+          <li><b>Adultes: </b>{{ ticket.nbAdultes }}</li>
+          <li><b>Enfants: </b>{{ ticket.nbEnfants }}</li>
+          <li><b>Bébés: </b>{{ ticket.nbBebe }}</li>
+          <li><b>Prix: </b>{{ ticket.prix }} DT</li>
+        </ul>
+        <button *ngIf="role == 'vendeur' || role == 'agent'" class="btn btn-danger float-end m-0" (click)="cancelTicket()">Annuler</button>
+        <button *ngIf="role == 'vendeur'" class="btn btn-primary float-end me-2" (click)="deleteTicket()">Supprimer</button>
+        <button *ngIf="role == 'chauffeur'" class="btn btn-primary float-end me-2" (click)="executeTicket()">Executer</button>
+        <div class="card-text"><small class="text-body-secondary">Vendu le {{ ticket.dateVente | date }}</small></div>
+        <div class="card-text"><small class="text-body-secondary">Vendeur: {{ sellerName }}</small></div>
+      </div>
+    </div>
+  </div>
+</div>

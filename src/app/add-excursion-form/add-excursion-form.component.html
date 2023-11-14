@@ -1,0 +1,49 @@
+<form #addExcursionForm="ngForm" (ngSubmit)="onSubmit()" class="add-excursion-form p-5" enctype="multipart/form-data">
+    <h2 class="mb-4">Ajouter une excursion</h2>
+    <div class="my-3">
+        <input type="text" id="nom" name="nom" class="form-control" [(ngModel)]="nom" required placeholder="Nom">
+    </div>
+    <div class="my-3">
+        <input type="text" id="destination" name="destination" class="form-control" [(ngModel)]="destination" required
+            placeholder="Destination">
+    </div>
+    <div class="my-3">
+        <input type="number" id="prix" name="prix" class="form-control" [(ngModel)]="prix" required placeholder="Prix">
+    </div>
+    <div class="my-3">
+        <label class="form-label">Selectionner une image</label>
+        <input type="file" id="img" name="img" class="form-control" accept="image/*" #imageInput>
+    </div>
+    <div class="my-3">
+        <textarea class="form-control" id="description" name="description" style="width: 100%;"
+            placeholder="Ajouter une courte description" [(ngModel)]="description"></textarea>
+    </div>
+    <div class="my-3">
+        <select id="chauffeur" name="chauffeur" class="form-select" [(ngModel)]="idChauffeur" required>
+            <option value="" disabled selected>
+                Selectionner le chauffeur associé à cette excursion
+            </option>
+            <option *ngFor="let chauffeur of chauffeurs" [value]="chauffeur.userId">{{ chauffeur.nom }}</option>
+        </select>
+    </div>
+    <hr>
+    <div class="my-3">
+        <label for="datedebut" class="form-label">Date de début</label>
+        <input type="date" id="datedebut" name="datedebut" class="form-control" [(ngModel)]="dateDebut" required
+            placeholder="Date de début">
+    </div>
+    <div class="my-3">
+        <label for="datefin" class="form-label">Date de fin</label>
+        <input type="date" id="datefin" name="datefin" class="form-control" [(ngModel)]="dateFin" required
+            placeholder="Date de fin">
+    </div>
+    <div *ngIf="success == true" class="alert alert-success">
+        <span>{{message}}</span>
+    </div>
+    <div *ngIf="danger == true" class="alert alert-danger">
+        <span>{{message}}</span>
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary w-25">Ajouter</button>
+    </div>
+</form>

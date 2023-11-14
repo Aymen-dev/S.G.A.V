@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+<section class="section-bg">
+    <div class="container-fluid p-5">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="dashboard">
+                    <header class="dashboard-header text-center">
+                        <h1 class="dashboard-title">Bienvenue {{ sellerName }}</h1>
+                        <div class="dashboard-actions">
+                            <button class="btn btn-light" (click)="openSellTicketDialog()">Vendre ticket</button>
+                            <button class="btn btn-warning" (click)="transmitJournal()">Transmettre journal</button>
+                        </div>
+                    </header>
+                    <h5 class="mb-4">Votre journal du jour</h5>
+                    <div class="dashboard-content">
+                        <h3 class="text-center">{{message}}</h3>
+                        <div *ngIf="!journalTransmitted">
+                            <div *ngFor="let ticket of tickets">
+                                <app-ticket [ticket]="ticket"></app-ticket>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
